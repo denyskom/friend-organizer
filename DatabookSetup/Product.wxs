@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:ui="http://schemas.microsoft.com/wix/UIExtension"
+     xmlns:sql="http://schemas.microsoft.com/wix/SqlExtension"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+	<Product Id="*" Name="Databook" Language="1033" Version="0.0.3.0" Manufacturer="Interlink" UpgradeCode="651abcd9-94dc-496b-8916-40f53c006bd3">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of Databook is already installed." />
+		<MediaTemplate />
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    <UIRef Id="WixUI_InstallDir" />
+
+		<Feature Id="ProductFeature" Title="Databook" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="DatabookSetup" />
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			
+      <Component Id="CMP_MainComponent">
+        <File Id="FILE_Databook.exe" Name="Databook.exe" Source="$(var.FriendOrganizer.UI.TargetPath)" KeyPath="yes" />
+      </Component>
+      <Component Id="CMP_Model">
+        <File Id="FILE_Model.dll" Source="$(var.FriendOrganizer.Model.TargetPath)" KeyPath="yes" />
+      </Component>
+		</ComponentGroup>
+	</Fragment>
+</Wix>

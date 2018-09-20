@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using FriendOrganizer.Model;
+using FriendOrganizer.UI.Data;
+using Microsoft.Win32;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace FriendOrganizer.UI
 {
@@ -23,6 +14,30 @@ namespace FriendOrganizer.UI
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void ChoseFileHandler(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Filter = "CSV Files (*.CSV)|*.CSV";
+            
+
+            if (fileDialog.ShowDialog() == true)
+            {
+                FileInput.Text = fileDialog.FileName;
+                FriendDataService friendService = new FriendDataService();
+
+                StringBuilder allUsers = new StringBuilder();
+                System.Collections.Generic.IEnumerator<Friend> iterator = friendService.GetAll().GetEnumerator();
+                while (iterator.MoveNext())
+                {
+                    Friend user = iterator.Current;
+                    allUsers.AppendLine($"{user.FirstName} {user.LastName}");
+                }
+
+                UsersList.Text = allUsers.ToString();           
+            };
+          
         }
     }
 }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:ui="http://schemas.microsoft.com/wix/UIExtension"
+     xmlns:sql="http://schemas.microsoft.com/wix/SqlExtension"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+	<Bundle Name="DatabookBundle" Version="1.0.0.0" Manufacturer="Interlink" UpgradeCode="3a1fbc18-9d11-4b6a-ac15-335305b42902">
+    <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.RtfLicense" />
+		<Chain>
+			<!-- TODO: Define the list of chained packages. -->
+			<!-- <MsiPackage SourceFile="path\to\your.msi" /> -->
+
+      <MsiPackage
+             Cache="no"
+             Compressed="yes"
+             ForcePerMachine="yes"
+             Permanent="yes"
+             Visible="yes"
+             SourceFile="C:\Users\denyskom\Desktop\Databook\DB\SSCERuntime_x64-ENU.msi">
+        <MsiProperty Name="INSTALLFOLDER" Value="INSTALFOLDER"/>
+      </MsiPackage>
+      <MsiPackage
+            Cache="no"
+            Compressed="yes"
+            ForcePerMachine="yes"
+            DisplayInternalUI="yes"
+            EnableFeatureSelection="yes"
+            Permanent="yes"
+            Visible="yes"
+            SourceFile="D:\Denis Kompaniyets\Files\Study\Projects\FriendOrganizer\DatabookSetup\bin\Debug\DatabookSetup.msi" />
+    </Chain>
+	</Bundle>
+</Wix>
