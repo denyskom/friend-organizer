@@ -15,7 +15,7 @@
              ForcePerMachine="yes"
              Permanent="yes"
              Visible="yes"
-             SourceFile="C:\Users\denyskom\Desktop\Databook\DB\SSCERuntime_x64-ENU.msi">
+             SourceFile="..\Data\SSCERuntime_x64-ENU.msi">
         <MsiProperty Name="INSTALLFOLDER" Value="INSTALFOLDER"/>
       </MsiPackage>
       <MsiPackage
@@ -26,7 +26,7 @@
             EnableFeatureSelection="yes"
             Permanent="yes"
             Visible="yes"
-            SourceFile="D:\Denis Kompaniyets\Files\Study\Projects\FriendOrganizer\DatabookSetup\bin\Debug\DatabookSetup.msi" />
+            SourceFile="..\DatabookSetup\bin\Debug\DatabookSetup.msi" />
     </Chain>
 	</Bundle>
 </Wix>
