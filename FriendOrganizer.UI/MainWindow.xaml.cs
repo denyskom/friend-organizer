@@ -1,5 +1,6 @@
-﻿using FriendOrganizer.Model;
-using FriendOrganizer.UI.Data;
+﻿using FriendOrganizer.UI.Data;
+using FriendOrganizer.Model;
+using FriendOrganizer.DataAccess;
 using Microsoft.Win32;
 using System.Text;
 using System.Windows;
@@ -14,6 +15,8 @@ namespace FriendOrganizer.UI
         public MainWindow()
         {
             InitializeComponent();
+            Connection conn = new Connection();
+            conn.ConnectToDB();
         }
 
         private void ChoseFileHandler(object sender, RoutedEventArgs e)
@@ -38,6 +41,12 @@ namespace FriendOrganizer.UI
                 UsersList.Text = allUsers.ToString();           
             };
           
+        }
+
+        private void LoadFromDBHandler(object sender, RoutedEventArgs e)
+        {
+            Connection conn = new Connection();
+            UsersList.Text = conn.getDBData();
         }
     }
 }

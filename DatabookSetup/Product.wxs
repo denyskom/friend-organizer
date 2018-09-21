@@ -33,6 +33,9 @@
       <Component Id="CMP_Model">
         <File Id="FILE_Model.dll" Source="$(var.FriendOrganizer.Model.TargetPath)" KeyPath="yes" />
       </Component>
+      <Component Id="CMP_Access">
+        <File Id="FILE_DataAccess.dll" Source="$(var.FriendOrganizer.DataAccess.TargetPath)" KeyPath="yes" />
+      </Component>
 		</ComponentGroup>
 	</Fragment>
 </Wix>
