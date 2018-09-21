@@ -20,7 +20,6 @@
             </Grid>
             <Button Click="LoadFromDBHandler"  Content="Load from DB" />
             <TextBlock x:Name="UsersList" Height="200" Margin="0 10 0 0"/>
-
         </StackPanel>
     </Border>
 </Window>

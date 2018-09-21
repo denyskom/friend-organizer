@@ -3,7 +3,7 @@
      xmlns:ui="http://schemas.microsoft.com/wix/UIExtension"
      xmlns:sql="http://schemas.microsoft.com/wix/SqlExtension"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
-	<Bundle Name="DatabookBundle" Version="1.0.0.0" Manufacturer="Interlink" UpgradeCode="3a1fbc18-9d11-4b6a-ac15-335305b42902">
+	<Bundle Name="DatabookBundle" ParentName="Databook" Version="1.0.0.0" Manufacturer="Interlink" UpgradeCode="3a1fbc18-9d11-4b6a-ac15-335305b42902">
     <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.RtfLicense" />
 		<Chain>
 			<!-- TODO: Define the list of chained packages. -->
